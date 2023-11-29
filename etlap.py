@@ -10,6 +10,7 @@ itallap = ["0 - Nem kér semmit", "1 - Coca Cola", "2 - Kőbányai", "3 - Márka
 italar = [0,450,450,350]
 desszertek = ["0 - Nem kér semmit", "1 - Tiramisu", "2 - Nutellás palacsinta", "3 - Túrós palacsinta"]
 desszertar = [0,650,750,250]
+
 '''''
 lev() Leves
 foet() Főétel
@@ -40,62 +41,14 @@ def etl():
     szoveg_kiiras(karakter,"Étlap",karakter,meret)
     keret(meret,karakter)
 
-def lev():
-    szoveg_kiiras(karakter,"Levesek",karakter,meret)
-    keret(meret,karakter)
-    n = 0
-    n2 = 0
-    for leves in range (3):
-        n = n+1
-        n2 = n2+1
-        leves = levesek[n]
-        ar = levesar[n]
-        etel_kiiras(karakter,leves,karakter,meret,ar)
+def item(fajta, cim, etelar):
+    szoveg_kiiras(karakter, cim, karakter, meret)
+    keret(meret, karakter)
 
-def foet():
-    keret(meret,karakter)
-    szoveg_kiiras(karakter,"Főétel",karakter,meret)
-    keret(meret,karakter)
-    n = 0
-    n2 = 0
-    for leves in range (3):
-        n = n+1
-        n2 = n2+1
-        fetel = foetel[n]
-        ar = foetelar[n]
-        etel_kiiras(karakter,fetel,karakter,meret,ar)
+    for n in range(len(fajta)):
+        kiirt_etel = fajta[n]
+        ar = etelar[n]
+        etel_kiiras(karakter, kiirt_etel, karakter, meret, ar)
 
 
 
-def drink():
-    keret(meret,karakter)
-    szoveg_kiiras(karakter,"Itallap",karakter,meret)
-    keret(meret,karakter)
-    n = 0
-    n2 = 0
-    for ital in range (3):
-        n = n+1
-        n2 = n2+1
-        italok = itallap[n]
-        ar = italar[n]
-        etel_kiiras(karakter,italok,karakter,meret,ar)
-
-def dessert():
-    keret(meret,karakter)
-    szoveg_kiiras(karakter,"Desszertek",karakter,meret)
-    keret(meret,karakter)
-    n = 0
-    n2 = 0
-    for ital in range (3):
-        n = n+1
-        n2 = n2+1
-        desszert = desszertek[n]
-        ar = desszertar[n]
-        etel_kiiras(karakter,desszert,karakter,meret,ar)
-    keret(meret,karakter)
-
-etl()
-lev()
-foet()
-drink()
-dessert()
